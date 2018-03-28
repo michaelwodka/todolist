@@ -9,7 +9,7 @@ var row = [
 $(function(){
 	var windowh = $(window).height()
 	var boxh = $(".box").height()
-    var iter= Math.round((3/4)*(windowh/boxh))
+    var iter= Math.round((2/3)*(windowh/boxh))
     $.each(new Array(iter),function(){ 
         $("#adder").after(row);
     });
