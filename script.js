@@ -1,4 +1,4 @@
-$(function rowcreater(){
+$(function(){
 	var row = [
 			'<div class = "row">',
 				'<div class = "col-xs-12 col-lg-4 col-lg-offset-4">',
@@ -15,6 +15,3 @@ $(function rowcreater(){
 
     $(".box:odd").css("background-color", "rgb(224,224,224)");
 });
-
-window.onload = rowcreater()
-
