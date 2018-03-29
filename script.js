@@ -1,12 +1,11 @@
-var row = [
-		'<div class = "row">',
-			'<div class = "col-xs-12 col-lg-4 col-lg-offset-4">',
-				'<div class ="box">&nbsp;</div>',
-			'</div>',
-		'</div>'
-];
-
-$(function(){
+$(function rowcreater(){
+	var row = [
+			'<div class = "row">',
+				'<div class = "col-xs-12 col-lg-4 col-lg-offset-4">',
+					'<div class ="box">&nbsp;</div>',
+				'</div>',
+			'</div>'
+	];
 	var windowh = $(window).height()
 	var boxh = $(".box").height()
     var iter= Math.round((2/3)*(windowh/boxh))
@@ -16,4 +15,6 @@ $(function(){
 
     $(".box:odd").css("background-color", "rgb(224,224,224)");
 });
+
+window.onload = rowcreater()
 
