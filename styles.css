@@ -31,31 +31,32 @@
 	padding-bottom: 3px;
 }
 
-#bootstrap-overrides .nopadding{
-	padding: 0;
-	text-align: center;
-}
-
 #plus{
 	font-size: 19px;
 	font-weight: bold;
 	cursor: pointer;
 }
 
-#bootstrap-overrides .borderleft{
-	border-left: thin outset black;
+::placeholder{
+	color: rgba(0, 0, 0, 0.2);
 }
 
-#todotext{
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.todotext{
 	padding-left: 5px;
 	text-align: left;
 	border-right: thin outset black;
 }
 
-/*input[type="text"], textarea {
-	background-color: rgb(202,222,245);
+#bootstrap-overrides .nopadding{
+	padding: 0;
+	text-align: center;
 }
 
-#clicker{
-	background-color: rgb(202,222,245);
-}*/
+#bootstrap-overrides .borderleft{
+	border-left: thin outset black;
+}
+
