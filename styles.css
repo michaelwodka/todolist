@@ -7,7 +7,7 @@
 	font-size: 24px;
 	text-align: center;
 	border-top: thin outset black;
-	background-color: rgb(224,224,224);
+	background-color: rgb(202,222,245);
 }
 
 #adder{
@@ -37,7 +37,7 @@
 }
 
 #plus{
-	font-size: 20px;
+	font-size: 19px;
 	font-weight: bold;
 	cursor: pointer;
 }
@@ -52,3 +52,10 @@
 	border-right: thin outset black;
 }
 
+/*input[type="text"], textarea {
+	background-color: rgb(202,222,245);
+}
+
+#clicker{
+	background-color: rgb(202,222,245);
+}*/
