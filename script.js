@@ -8,9 +8,9 @@ $(document).ready(function toDoListSetup(){
 				'</div>' +
 			'</div>'
 	);
-	var windowh = $(window).height()
-	var boxh = $(".box").height()
-    var iter= Math.round((2/3)*(windowh/boxh))
+	var windowh = $(window).height();
+	var boxh = $(".box").height();
+    var iter= Math.round((2/3)*(windowh/boxh));
     $.each(new Array(iter),function(){ 
         $("#adderdiv").after(row);
     });
@@ -20,9 +20,10 @@ $(document).ready(function toDoListSetup(){
 });
 
 function addToDoItem(){
+	console.log($('#adder').val())
 	var todo = $('#adder').val();
-	var currentcolor =  $(this).css("background-color")
-	var nextcolor = $(this).parent().parent().next().find('.box').css("background-color")
+	var currentcolor =  $(this).css("background-color");
+	var nextcolor = $(this).parent().parent().next().find('.box').css("background-color");
 
 	if ($('#adder').val()){
 
@@ -45,29 +46,63 @@ function addToDoItem(){
 			'</div>'	
 		);
 
-		$('#adder').replaceWith('<div class = "todotext">' + todo + '</div>');
+		$('#adder').replaceWith('<div class = "todotext strikethrough">' + todo + '</div>');
 
-		$('#clicker').css('background-color', nextcolor)
-		$('#adder').css('background-color', nextcolor)
+		$('#clicker').css('background-color', nextcolor);
+		$('#adder').css('background-color', nextcolor);
 		$('#adder').select();
 
-		$('.todotext:last').css('background-color', currentcolor)
-		$('.checker:last').parent().css('background-color', currentcolor)
+		$('.todotext:last').css('background-color', currentcolor);
+		$('.todotext:last').toggleClass('strikethrough');
+		$('.checker:last').parent().css('background-color', currentcolor);
 
-		setAddToDoItemEvent();
+		setEvents();
 	} else{
 
-		$('#adder').attr("placeholder", "To-do cannot be left blank. Try again.")
-	}
+		$('#adder').attr("placeholder", "To-do cannot be left blank. Try again.");
+	};
 };
 
-function setAddToDoItemEvent(){
-	setTimeout(function(){$("#clicker").on("click", addToDoItem)}, 100);
-	setTimeout(function(){$("#adder").keypress(function(event){
+function completeToDoItem(){
+	$(this).parent().parent().find(".todotext").toggleClass("strikethrough");
+};
+
+function editToDoItem(){
+	var text = $(this).text();
+	var currentcolor =  $(this).css("background-color");
+	var newhtml = $('<input type="text" id = "edit" value = "' + text + '">')
+	$(this).replaceWith(newhtml);
+	newhtml.css('background-color', currentcolor);
+	newhtml.focus();
+	setEvents();
+};
+
+function finishEditingToDoItem(){
+	var todo = $("#edit").val();
+	var currentcolor =  $("#edit").css("background-color");
+	var newhtml = $('<div class = "todotext strikethrough">' + todo + '</div>');
+	$("#edit").replaceWith(newhtml);
+	newhtml.css('background-color', currentcolor);
+	newhtml.toggleClass("strikethrough");
+};
+
+function setEvents(){
+	setTimeout(function(){$("#clicker").off().on("click", addToDoItem)}, 100);
+	setTimeout(function(){$("#adder").off().keypress(function(event){
 		if (event.which === 13){
 			$("#clicker").click();
 		}
 	})}, 100);
+
+	$(".checker").off().on("change", completeToDoItem);
+
+	$(".todotext").off().on("click", editToDoItem);
+	
+	$("#edit").off().keypress(function(event){
+		if (event.which === 13){
+			finishEditingToDoItem();
+		}
+	});
 };
 
-setAddToDoItemEvent();
+setEvents();

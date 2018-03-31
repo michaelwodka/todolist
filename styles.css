@@ -19,6 +19,15 @@
 	padding-left: 5px;
 }
 
+#edit{
+	width:100%;
+	border: thin outset black;
+	border-left: none;
+	border-top: none;
+	border-bottom: none;
+	padding-left: 5px;
+}
+
 #footer{
 	border-bottom: thin outset black;
 }
@@ -49,6 +58,10 @@ textarea:focus, input:focus{
 	padding-left: 5px;
 	text-align: left;
 	border-right: thin outset black;
+}
+
+.strikethrough{
+	text-decoration: line-through;
 }
 
 #bootstrap-overrides .nopadding{
