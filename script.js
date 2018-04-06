@@ -20,7 +20,6 @@ $(document).ready(function toDoListSetup(){
 });
 
 function addToDoItem(){
-	console.log($('#adder').val())
 	var todo = $('#adder').val();
 	var currentcolor =  $(this).css("background-color");
 	var nextcolor = $(this).parent().parent().next().find('.box').css("background-color");
@@ -86,6 +85,45 @@ function finishEditingToDoItem(){
 	newhtml.toggleClass("strikethrough");
 };
 
+function setTrashCans(){
+	if ($(".checker").length){
+		$(".checker").replaceWith('<div class="glyphicon glyphicon-trash trash" aria-hidden="true"></div>');
+	} else {
+		$(".trash").replaceWith('<input class = "checker" type="checkbox">');
+
+		$(".checker").each(function(){
+			if($(this).parent().next().find(".strikethrough").length){
+				$(this).prop('checked', true);
+			}			
+		}); 
+	}
+	setEvents();
+};
+
+function deleteToDoItem(){
+	$(this).parent().parent().parent().prev().nextAll().each(function(){
+		
+		var nextHTML = $(this).next().html();
+		var currentcolor = $(this).find('.todotext').css("background-color");
+
+		$(this).html(nextHTML);
+
+		if($(this).next().next().find('.box').length != 0){
+			var boxcolor = $(this).next().next().find('.box').css("background-color");
+		} else{
+			var boxcolor = $(this).prev().prev().find('.box').css("background-color");
+			$('#footer').removeAttr('id');
+		}
+
+		$(this).find('.todotext').css("background-color", currentcolor);
+		$(this).find('.col-xs-1').css("background-color", currentcolor);
+		$(this).find('input').css("background-color", currentcolor);
+		$(this).find('.box').css("background-color", boxcolor);
+		$(".box:last").attr('id', 'footer');
+	});
+	setEvents();
+};
+
 function setEvents(){
 	setTimeout(function(){$("#clicker").off().on("click", addToDoItem)}, 100);
 	setTimeout(function(){$("#adder").off().keypress(function(event){
@@ -103,6 +141,10 @@ function setEvents(){
 			finishEditingToDoItem();
 		}
 	});
+
+	$("#editer").off().on("click", setTrashCans);
+
+	$(".trash").off().on("click", deleteToDoItem);
 };
 
 setEvents();
