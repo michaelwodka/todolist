@@ -32,6 +32,9 @@
 }
 
 #adder{
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 	width:100%;
 	border: thin outset black;
 	border-left: none;
@@ -59,6 +62,7 @@
 	border-bottom: none;
 	padding-left: 5px;
 	padding-bottom: 3px;
+	font-size: 17px;
 }
 
 #plus{
@@ -76,6 +80,8 @@ textarea:focus, input:focus{
 }
 
 .todotext{
+	padding-bottom: 1px;
+	padding-top: 1px;
 	padding-left: 5px;
 	text-align: left;
 	border-right: thin outset black;
@@ -101,4 +107,9 @@ textarea:focus, input:focus{
 
 #bootstrap-overrides .checker {
     cursor: pointer;
+    margin: 0;
+}
+
+#bootstrap-overrides .col-xs-1{
+	font-size: 19px;
 }
