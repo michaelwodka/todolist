@@ -1,13 +1,14 @@
-$(document).ready(function toDoListSetup(){
-	var row = (
-			'<div class = "row">' +
-				'<div class = "col-xs-12 col-lg-4 col-lg-offset-4">' +
-					'<div class ="box">' +
-						'&nbsp;' +
-					'</div>' +
+var row = (
+		'<div class = "row">' +
+			'<div class = "col-xs-12 col-lg-4 col-lg-offset-4">' +
+				'<div class ="box">' +
+					'&nbsp;' +
 				'</div>' +
-			'</div>'
-	);
+			'</div>' +
+		'</div>'
+);
+
+$(document).ready(function toDoListSetup(){
 	var windowh = $(window).height();
 	var boxh = $(".box").height();
     var iter= Math.round((2/3)*(windowh/boxh));
@@ -25,6 +26,11 @@ function addToDoItem(){
 	var nextcolor = $(this).parent().parent().next().find('.box').css("background-color");
 
 	if ($('#adder').val()){
+
+		if ($(this).parent().parent().next().find("#footer").length != 0){
+			$(row).insertAfter($(this).parent().parent());
+			$('#footer').css('background-color', currentcolor)
+		}
 
 		$(this).parent().parent().next().replaceWith(
 			'<div class = "row">' +
@@ -110,8 +116,12 @@ function deleteToDoItem(){
 
 		if($(this).next().next().find('.box').length != 0){
 			var boxcolor = $(this).next().next().find('.box').css("background-color");
-		} else{
+		} else if($(this).next().next().find('.box').length == 0 && $(this).prev().prev().find('.box').length != 0){
 			var boxcolor = $(this).prev().prev().find('.box').css("background-color");
+			$('#footer').removeAttr('id');
+		} else if($(this).next().next().find('.box').length == 0 && $(this).prev().prev().find('.box').length == 0){
+			var boxcolor = $(this).prev().prev().find('.todotext').css("background-color");
+			var boxcolor2 = $(this).prev().prev().find('input').css("background-color");
 			$('#footer').removeAttr('id');
 		}
 
@@ -119,6 +129,7 @@ function deleteToDoItem(){
 		$(this).find('.col-xs-1').css("background-color", currentcolor);
 		$(this).find('input').css("background-color", currentcolor);
 		$(this).find('.box').css("background-color", boxcolor);
+		$(this).find('.box').css("background-color", boxcolor2);
 		$(".box:last").attr('id', 'footer');
 	});
 	setEvents();
