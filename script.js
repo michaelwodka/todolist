@@ -25,6 +25,9 @@ function addToDoItem(){
 	var currentcolor =  $(this).css("background-color");
 	var nextcolor = $(this).parent().parent().next().find('.box').css("background-color");
 
+	// console.log(todo.length)
+	// console.log($(this).width())
+
 	if ($('#adder').val()){
 
 		if ($(this).parent().parent().next().find("#footer").length != 0){
@@ -53,6 +56,8 @@ function addToDoItem(){
 
 		$('#adder').replaceWith('<div class = "todotext strikethrough">' + todo + '</div>');
 
+		// $(".checker").height($(".todotext").height())
+
 		$('#clicker').css('background-color', nextcolor);
 		$('#adder').css('background-color', nextcolor);
 		$('#adder').select();
@@ -62,9 +67,7 @@ function addToDoItem(){
 		$('.checker:last').parent().css('background-color', currentcolor);
 
 		setEvents();
-	} else {
-		$('#adder').attr("placeholder", "To-do cannot be left blank. Try again.");
-	};
+	}; 
 };
 
 function completeToDoItem(){
@@ -75,6 +78,10 @@ function editToDoItem(){
 	if (!$(this).parent().parent().find(".checker").is(":checked")){
 		var text = $(this).text();
 		var currentcolor =  $(this).css("background-color");
+		if (text == "To-do cannot be left blank. Try again."){
+			var text = ""
+		}
+
 		var newhtml = $('<input type="text" id = "edit" value = "' + text + '">')
 		$(this).replaceWith(newhtml);
 		newhtml.css('background-color', currentcolor);

@@ -1,5 +1,6 @@
 #bootstrap-overrides{
 	font-size:18px;
+	word-wrap: break-word; 
 }
 
 #header{
@@ -35,12 +36,14 @@
 	-webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    -webkit-border-radius:0px;
 	width:100%;
 	border: thin outset black;
 	border-left: none;
 	border-top: none;
 	border-bottom: none;
 	padding-left: 5px;
+	border-radius: 0;
 }
 
 #edit{
