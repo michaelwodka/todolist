@@ -25,10 +25,11 @@ function addToDoItem(){
 	var currentcolor =  $(this).css("background-color");
 	var nextcolor = $(this).parent().parent().next().find('.box').css("background-color");
 
-	// console.log(todo.length)
-	// console.log($(this).width())
-
 	if ($('#adder').val()){
+
+		if ($(this).parent().parent().prev().find(".glyphicon").length !=0){
+			setTrashCans();
+		}
 
 		if ($(this).parent().parent().next().find("#footer").length != 0){
 			$(row).insertAfter($(this).parent().parent());
@@ -48,15 +49,13 @@ function addToDoItem(){
 			'</div>'
 		);
 
-		$('#clicker').replaceWith(
-			'<div class = "col-xs-1 nopadding borderleft">' +
+		var toDoHTML = $('<div class = "todotext strikethrough">' + todo + '</div>').replaceAll($("#adder"))
+
+		var checkerHTML = $('<div class = "col-xs-1 nopadding borderleft">' +
 				'<input class = "checker" type="checkbox">' +
-			'</div>'	
-		);
+			'</div>').replaceAll($('#clicker'));	
 
-		$('#adder').replaceWith('<div class = "todotext strikethrough">' + todo + '</div>');
-
-		// $(".checker").height($(".todotext").height())
+		checkerHTML.height(toDoHTML.height())
 
 		$('#clicker').css('background-color', nextcolor);
 		$('#adder').css('background-color', nextcolor);
@@ -78,12 +77,15 @@ function editToDoItem(){
 	if (!$(this).parent().parent().find(".checker").is(":checked")){
 		var text = $(this).text();
 		var currentcolor =  $(this).css("background-color");
+		var checkerbox = $(this).parent().siblings();
+
 		if (text == "To-do cannot be left blank. Try again."){
 			var text = ""
 		}
 
-		var newhtml = $('<input type="text" id = "edit" value = "' + text + '">')
-		$(this).replaceWith(newhtml);
+		var newhtml = $('<input type="text" id = "edit" value = "' + text + '">');
+		newhtml.replaceAll($(this));
+		checkerbox.height(newhtml.height());
 		newhtml.css('background-color', currentcolor);
 		newhtml.focus();
 	}
@@ -94,11 +96,14 @@ function finishEditingToDoItem(){
 	var todo = $("#edit").val();
 	var currentcolor =  $("#edit").css("background-color");
 	var newhtml = $('<div class = "todotext strikethrough">' + todo + '</div>');
+	var checkerbox = $("#edit").parent().siblings();
+
 	if (todo == ""){
 		var newhtml = $('<div class = "todotext strikethrough">' + "To-do cannot be left blank. Try again." + '</div>');
 		newhtml.css("color", "rgba(0, 0, 0, 0.2)");
 	}
-	$("#edit").replaceWith(newhtml);
+	newhtml.replaceAll($("#edit"));
+	checkerbox.height(newhtml.height());
 	newhtml.css('background-color', currentcolor);
 	newhtml.toggleClass("strikethrough");
 	setEvents();
