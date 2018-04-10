@@ -16,7 +16,7 @@ $(document).ready(function toDoListSetup(){
         $("#adderdiv").after(row);
     });
 
-    $(".box:odd").css("background-color", "rgb(202,222,245)");
+    $(".box:odd").css("background-color", "#99ccff");
     $('#adder').select();
 });
 

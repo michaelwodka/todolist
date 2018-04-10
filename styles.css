@@ -1,10 +1,13 @@
 #bootstrap-overrides{
-	word-wrap: break-word; 
+	word-wrap: break-word;
+	background: #36D1DC;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 #header{
 	font-size: 24px;
-	background-color: rgb(202,222,245);
+	background-color: #99ccff;
 	font-weight: bold;
 	text-align: left;
 	height: 35px;
@@ -12,7 +15,7 @@
 
 #editer{
 	font-size: 14px;
-	background-color: rgb(202,222,245);
+	background-color: #99ccff;
 	text-align: right;
 	vertical-align: bottom;
 	font-weight: bold;
@@ -111,6 +114,7 @@ textarea:focus, input:focus{
 	border-left: thin outset black;
 	border-right: thin outset black;
 	padding: 0;
+	background-color: white;
 }
 
 #bootstrap-overrides #superheader{
