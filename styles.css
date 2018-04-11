@@ -1,0 +1,128 @@
+#bootstrap-overrides{
+	word-wrap: break-word;
+	background: #36D1DC;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	font-family: "Verdana";
+	display: none;
+}
+
+#header{
+	font-size: 32px;
+	font-weight: bold;
+	text-align: left;
+	height: 43px;
+	color: white;
+}
+
+#editer{
+	font-size: 14px;
+	text-align: right;
+	vertical-align: bottom;
+	font-weight: bold;
+	height: 43px;
+	color: white;
+}
+
+#editertext{
+	cursor: pointer;
+	position: absolute;
+	bottom: 0;
+	right: 7px;
+}
+
+#adder{
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-border-radius:0px;
+	width:100%;
+	border: none;
+	padding-left: 5px;
+	border-radius: 0;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	font-size: 21px;
+}
+
+#edit{
+	width:100%;
+	border: none;
+	padding-left: 5px;
+	border-radius: 0;
+	padding-bottom: 0px;
+	padding-top: 0px;
+}
+
+.end{
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	overflow: hidden;
+}
+
+.box{
+	padding-left: 5px;
+	font-size: 21px;
+}
+
+#plus{
+	font-size: 21px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+::placeholder{
+	color: rgba(0, 0, 0, 0.2);
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.todotext{
+	padding-bottom: 0px;
+	padding-top: 0px;
+	padding-left: 5px;
+	text-align: left;
+	font-size: 21px;
+}
+
+.strikethrough{
+	text-decoration: line-through;
+}
+
+#bootstrap-overrides .nopadding{
+	padding: 0;
+	text-align: center;
+}
+
+#bootstrap-overrides .glyphicon {
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#bootstrap-overrides .checker {
+    cursor: pointer;
+    margin: 0;
+}
+
+#bootstrap-overrides .col-xs-1{
+	font-size: 21px;
+}
+
+#bootstrap-overrides .col-xs-11{
+	font-size: 21px;
+}
+
+#bootstrap-overrides .col-xs-12{
+	padding: 0;
+	background-color: white;
+}
+
+#bootstrap-overrides #superheader{
+	margin-top: 5vh;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	overflow: hidden;
+	background-color: #36454f;
+}
