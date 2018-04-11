@@ -18,6 +18,7 @@ $(document).ready(function toDoListSetup(){
 
     $(".box:odd").css("background-color", "#d3d3d3");
     $('#adder').select();
+    $('#bootstrap-overrides').fadeIn(2000);
 });
 
 function addToDoItem(){
@@ -150,6 +151,7 @@ function deleteToDoItem(){
 		$(this).find('.box').css("background-color", boxcolor2);
 		$(".box:last").attr('id', 'footer');
 	});
+	$(".row").eq(-2).find(".col-xs-12").removeClass("end");
 	setEvents();
 };
 
