@@ -11,12 +11,12 @@ var row = (
 $(document).ready(function toDoListSetup(){
 	var windowh = $(window).height();
 	var boxh = $(".box").height();
-    var iter= Math.round((2/3)*(windowh/boxh));
+    var iter= Math.round((6/7)*(windowh/boxh));
     $.each(new Array(iter),function(){ 
         $("#adderdiv").after(row);
     });
 
-    $(".box:odd").css("background-color", "#99ccff");
+    $(".box:odd").css("background-color", "#d3d3d3");
     $('#adder').select();
 });
 

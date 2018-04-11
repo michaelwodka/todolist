@@ -3,30 +3,32 @@
 	background: #36D1DC;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	font-family: "Verdana";
 }
 
+
 #header{
-	font-size: 24px;
-	background-color: #99ccff;
+	font-size: 32px;
 	font-weight: bold;
 	text-align: left;
-	height: 35px;
+	height: 43px;
+	color: white;
 }
 
 #editer{
 	font-size: 14px;
-	background-color: #99ccff;
 	text-align: right;
 	vertical-align: bottom;
 	font-weight: bold;
-	height: 35px;
+	height: 43px;
+	color: white;
 }
 
 #editertext{
 	cursor: pointer;
 	position: absolute;
 	bottom: 0;
-	right: 3px;
+	right: 7px;
 }
 
 #adder{
@@ -52,8 +54,10 @@
 	padding-top: 0px;
 }
 
-#footer{
-	border-bottom: thin outset black;
+.end{
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	overflow: hidden;
 }
 
 .box{
@@ -111,13 +115,14 @@ textarea:focus, input:focus{
 }
 
 #bootstrap-overrides .col-xs-12{
-	border-left: thin outset black;
-	border-right: thin outset black;
 	padding: 0;
 	background-color: white;
 }
 
 #bootstrap-overrides #superheader{
 	margin-top: 5vh;
-	border-top: thin outset black;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	overflow: hidden;
+	background-color: #36454f;
 }
